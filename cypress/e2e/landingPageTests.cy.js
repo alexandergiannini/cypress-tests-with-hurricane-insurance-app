@@ -6,8 +6,44 @@ describe('Hurricane Insurance Landing Page tests', () => {
     cy.visit('');
   });
 
-  it('submits a valid zip code', () => {
+  it('submits a valid California zip code', () => {
     landingPage.typePostalCodeField('90403');
+    landingPage.clickGetAQuoteBtn();
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid New York zip code', () => {
+    landingPage.typePostalCodeField('10111');
+    landingPage.clickGetAQuoteBtn();
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Chicago zip code', () => {
+    landingPage.typePostalCodeField('60602');
+    landingPage.clickGetAQuoteBtn();
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Texas zip code', () => {
+    landingPage.typePostalCodeField('78701');
+    landingPage.clickGetAQuoteBtn();
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Florida zip code', () => {
+    landingPage.typePostalCodeField('33592');
+    landingPage.clickGetAQuoteBtn();
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Hawaii zip code', () => {
+    landingPage.typePostalCodeField('96712');
+    landingPage.clickGetAQuoteBtn();
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Alaska zip code', () => {
+    landingPage.typePostalCodeField('99501');
     landingPage.clickGetAQuoteBtn();
     cy.url().should('include', '/building-material');
   });

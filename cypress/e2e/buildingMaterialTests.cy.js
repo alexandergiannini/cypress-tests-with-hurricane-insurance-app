@@ -4,7 +4,7 @@ import BuildMaterialPage from "../pages/buildingMaterialPage";
 const landingPage = new LandingPage();
 const buildMaterialPage = new BuildMaterialPage();
 
-describe('Hurricane Insurance Landing Page tests', () => {
+describe('Hurricane Insurance Build Material Page tests', () => {
   beforeEach(() => {
     cy.visit('');
     landingPage.submitZipCodeForm('90403');
@@ -48,5 +48,10 @@ describe('Hurricane Insurance Landing Page tests', () => {
     buildMaterialPage.strawOption.click();
     buildMaterialPage.selectedBuildMaterialIcon.eq(0).should('have.css', 'color', 'rgb(245, 0, 87)');
     buildMaterialPage.selectedBuildMaterialIcon.eq(2).should('have.css', 'color', 'rgba(0, 0, 0, 0.54)');
+  });
+
+  it('should attempt to select Next without selecting a build material option', () => {
+    buildMaterialPage.clickNextButton();
+    cy.url().should('include', '/building-material');
   });
 });

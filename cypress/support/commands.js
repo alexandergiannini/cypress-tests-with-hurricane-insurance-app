@@ -36,5 +36,13 @@ Cypress.Commands.add('buildMaterialOption', (attr) => {
 });
 
 Cypress.Commands.add('nextBtn', (attr) => {
-  return cy.get(`[data-testid="${attr}"]`);
+  return cy.get(`[type="${attr}"]`)
 });
+
+Cypress.Commands.add('waterProximityOption', (attr) => {
+  return cy.get(`[value="${attr}"]`);
+});
+
+// Cypress.Commands.add('nextBtnWaterProximityPage', (attr) => {
+//   return cy.get(`[type="${attr}"]`); //need to alter this
+// });

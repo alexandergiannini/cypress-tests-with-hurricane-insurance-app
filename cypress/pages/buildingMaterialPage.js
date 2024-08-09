@@ -12,7 +12,7 @@ class BuildMaterialPage {
   }
 
   get nextBtn() {
-    return cy.nextBtn('submit_cta');
+    return cy.nextBtn('submit');
   }
 
   get selectedBuildMaterialIcon() {
@@ -20,6 +20,11 @@ class BuildMaterialPage {
   }
 
   clickNextButton() {
+    this.nextBtn.click();
+  }
+
+  submitBuildMaterialOption() {
+    this.sticksOption.click();
     this.nextBtn.click();
   }
 }
