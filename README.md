@@ -1,0 +1,1 @@
+# Cypress tests running against Hurricane Insurance app
