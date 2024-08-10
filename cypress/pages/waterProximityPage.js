@@ -1,10 +1,10 @@
 class WaterProximityPage {
   get yesOption() {
-    return cy.waterProximityOption('true');
+    return cy.valueAttr('true');
   }
 
   get noOption() {
-    return cy.waterProximityOption('false');
+    return cy.valueAttr('false');
   }
 
   get nextBtn() {
@@ -21,12 +21,12 @@ class WaterProximityPage {
 
   submitYesOption() {
     this.yesOption.click();
-    this.clickNextButton.click();
+    this.nextBtn.click();
   }
 
   submitNoOption() {
     this.noOption.click();
-    this.clickNextButton.click();
+    this.nextBtn.click();
   }
 }
 

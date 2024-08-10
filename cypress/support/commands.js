@@ -31,18 +31,15 @@ Cypress.Commands.add('zipCodeSubmitBtn', (attr) => {
   return cy.get(`[type="${attr}"]`);
 });
 
-Cypress.Commands.add('buildMaterialOption', (attr) => {
-  return cy.get(`[value="${attr}"]`);
-});
-
 Cypress.Commands.add('nextBtn', (attr) => {
   return cy.get(`[type="${attr}"]`)
 });
 
-Cypress.Commands.add('waterProximityOption', (attr) => {
+Cypress.Commands.add('valueAttr', (attr) => {
   return cy.get(`[value="${attr}"]`);
 });
 
-// Cypress.Commands.add('nextBtnWaterProximityPage', (attr) => {
-//   return cy.get(`[type="${attr}"]`); //need to alter this
-// });
+Cypress.Commands.add('dataTestId', (attr) => {
+  return cy.get(`[data-testid="${attr}"]`);
+});
+

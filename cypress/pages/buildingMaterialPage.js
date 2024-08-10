@@ -1,14 +1,14 @@
 class BuildMaterialPage {
   get strawOption() {
-    return cy.buildMaterialOption('straw');
+    return cy.valueAttr('straw');
   }
 
   get sticksOption() {
-    return cy.buildMaterialOption('sticks');
+    return cy.valueAttr('sticks');
   }
 
   get bricksOption() {
-    return cy.buildMaterialOption('bricks');
+    return cy.valueAttr('bricks');
   }
 
   get nextBtn() {
@@ -23,8 +23,18 @@ class BuildMaterialPage {
     this.nextBtn.click();
   }
 
-  submitBuildMaterialOption() {
+  submitStrawOption() {
+    this.strawOption.click();
+    this.nextBtn.click();
+  }
+
+  submitSticksOption() {
     this.sticksOption.click();
+    this.nextBtn.click();
+  }
+
+  submitBricksOption() {
+    this.bricksOption.click();
     this.nextBtn.click();
   }
 }

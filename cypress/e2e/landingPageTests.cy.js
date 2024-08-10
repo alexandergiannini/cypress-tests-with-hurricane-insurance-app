@@ -7,44 +7,71 @@ describe('Hurricane Insurance Landing Page tests', () => {
   });
 
   it('submits a valid California zip code', () => {
-    landingPage.typePostalCodeField('90403');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('90403');
     cy.url().should('include', '/building-material');
   });
 
   it('submits a valid New York zip code', () => {
-    landingPage.typePostalCodeField('10111');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('10111');
     cy.url().should('include', '/building-material');
   });
 
   it('submits a valid Chicago zip code', () => {
-    landingPage.typePostalCodeField('60602');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('60602');
     cy.url().should('include', '/building-material');
   });
 
   it('submits a valid Texas zip code', () => {
-    landingPage.typePostalCodeField('78701');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('78701');
     cy.url().should('include', '/building-material');
   });
 
   it('submits a valid Florida zip code', () => {
-    landingPage.typePostalCodeField('33592');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('33592');
     cy.url().should('include', '/building-material');
   });
 
   it('submits a valid Hawaii zip code', () => {
-    landingPage.typePostalCodeField('96712');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('96712');
     cy.url().should('include', '/building-material');
   });
 
   it('submits a valid Alaska zip code', () => {
-    landingPage.typePostalCodeField('99501');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('99501');
+    cy.url().should('include', '/building-material');
+  });
+
+  //Note: this test case should fail as this is a bug
+  it('submits a valid Canada zip code', () => {
+    landingPage.submitZipCodeForm('M5V 3L9');
+    cy.url().should('include', '/building-material');
+  });
+
+  //Note: this test case should fail as this is a bug
+  it('submits a valid Australia zip code', () => {
+    landingPage.submitZipCodeForm('4215');
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Mexico zip code', () => {
+    landingPage.submitZipCodeForm('23453');
+    cy.url().should('include', '/building-material');
+  });
+
+  it('submits a valid Italy zip code', () => {
+    landingPage.submitZipCodeForm('00199');
+    cy.url().should('include', '/building-material');
+  });
+
+ //Note: this test case should fail as this is a bug
+  it('submits a valid Japan zip code', () => {
+    landingPage.submitZipCodeForm('120-0000');
+    cy.url().should('include', '/building-material');
+  });
+
+  //Note: this test case should fail as this is a bug
+  it('submits a valid Ghana zip code', () => {
+    landingPage.submitZipCodeForm('GA107');
     cy.url().should('include', '/building-material');
   });
 
@@ -54,15 +81,28 @@ describe('Hurricane Insurance Landing Page tests', () => {
   });
 
   it('attempts to submit an invalid 4 digit zip code', () => {
-    landingPage.typePostalCodeField('1234');
-    landingPage.clickGetAQuoteBtn();
+    landingPage.submitZipCodeForm('1234');
     landingPage.requiredValidationMessage.contains('Invalid zip code').should('be.visible');
   });
 
-  // Note: this test case should fail at this time
-  // it('attempts to submit an invalid 5 digit zip code', () => {
-  //   landingPage.typePostalCodeField('00000');
-  //   landingPage.clickGetAQuoteBtn();
-  //   landingPage.requiredValidationMessage.contains('Invalid zip code').should('be.visible');
-  // });
+  //Note: this test case should fail as this is a bug
+  it('attempts to submit an invalid 5 digit zip code', () => {
+    landingPage.submitZipCodeForm('00000');
+    landingPage.requiredValidationMessage.contains('Invalid zip code').should('be.visible');
+  });
+
+  it('attempts to submit an invalid 5 digit zip code with special characters', () => {
+    landingPage.submitZipCodeForm('9040!');
+    landingPage.requiredValidationMessage.contains('Invalid zip code').should('be.visible');
+  });
+
+  it('attempts to submit an invalid 5 digit zip code with alphabetical characters', () => {
+    landingPage.submitZipCodeForm('9004a');
+    landingPage.requiredValidationMessage.contains('Invalid zip code').should('be.visible');
+  });
+
+  it('attempts to submit a valid 5 digit zip code but with empty white space', () => {
+    landingPage.submitZipCodeForm(' 90404');
+    landingPage.requiredValidationMessage.contains('Invalid zip code').should('be.visible');
+  });
 });

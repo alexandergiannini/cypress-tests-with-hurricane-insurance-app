@@ -10,7 +10,7 @@ describe('Hurricane Insurance Water Proximity Page tests', () => {
   beforeEach(() => {
     cy.visit('');
     landingPage.submitZipCodeForm('90403');
-    buildMaterialPage.submitBuildMaterialOption();
+    buildMaterialPage.submitSticksOption();
   });
   
   it('should be able to select the Yes option', () => {
